@@ -1,0 +1,23 @@
+server:
+  port: 8083
+eureka:
+  client:
+    service-url:
+      #设置服务注册中心地址
+      defaultZone:
+        http://localhost:8761/eureka/
+spring:
+  application:
+    name: service-config
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/ # 搜索src/main/resource 下的properties文件夹下的文件
+  profiles:
+    active: native  # 配置使用本地储存
+#management:
+#  endpoints:
+#    web:
+#      exposure:
+#        include: bus-refresh
